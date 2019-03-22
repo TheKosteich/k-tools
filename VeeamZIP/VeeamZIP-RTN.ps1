@@ -10,26 +10,11 @@
 
 # Names of VMs to backup separated by semicolon (Mandatory)
 $VMNames = 
-#	"CA0233",
-#	"KAV4206",
-#	"NGmgmtFW-ZLVS",
-#	"SPB25-SHELFKAV",
-#	"spb25-shelfLdc",
-#	"spb25-shelfpam",
-#	"spb25-shelfsam",
-#	"spb30-ibvc",
-#	"spb30-shelf-bkpVM",
-#	"spb30-shelf-certupd",
-#	"spb30-shelf-ISE01",
-#	"spb30-shelf-ISE02",
-#	"spb30-shelfbh01",
-#	"SPB30-SHELFKOZ",
-#	"spb30-shelfmd",
-#	"spb30-shelfrm",
-	"spb30-shelfzab"
+	"spb-frm",
+	"spb-zab"
 
 # Name of vCenter or standalone host VMs to backup reside on (Mandatory)
-$HostName = "spb30-ibvc"
+$HostName = "spb-vc"
 
 # Directory that VM backups should go to (Mandatory; for instance, C:\Backup)
 $Directory = "D:\backup"
@@ -44,8 +29,8 @@ $EnableQuiescence = $True
 $EnableEncryption = $True
 
 # Encryption Key (Optional; path to a secure string)
-# Encryption key is - "2892dc3cd4c0f8430841b3ba0e3dccfc30d0069fed628c664efe608b1027421a"
-$EncryptionKey = ConvertTo-SecureString "2892dc3cd4c0f8430841b3ba0e3dccfc30d0069fed628c664efe608b1027421a" -AsPlainText -Force
+# Encryption key is - "2892dc3cd4c0"
+$EncryptionKey = ConvertTo-SecureString "2892dc3cd4c0" -AsPlainText -Force
 $EncryptionKey = Add-VBREncryptionKey -Password $EncryptionKey
 
 # Retention settings (Optional; By default, VeeamZIP files are not removed and kept in the specified location for an indefinite period of time. 
