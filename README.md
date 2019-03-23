@@ -1,4 +1,10 @@
 # k-tools
-Admin scripts collection for many tasks
+Admin scripts for many tasks
 
-Description was later
+All scripts stored at self folder.
+
+Script description
+
+# run_all
+
+Run task on network hosts by IP
