@@ -1,2 +1,4 @@
 # k-tools
-Admin scripts
+Admin scripts collection for many tasks
+
+Description was later
