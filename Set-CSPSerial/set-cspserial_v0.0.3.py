@@ -11,7 +11,6 @@ import winreg
 import os
 import argparse
 
-
 #################################################
 parser = argparse.ArgumentParser(description='Script for CryptoPRO CSP 3.9. serial key management.')
 parser.add_argument('name', nargs='?', help="Computer hostname or IP address")

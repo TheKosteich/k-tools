@@ -11,7 +11,6 @@ import os
 import argparse
 import shutil
 from multiprocessing import Pool
-import time
 
 #################################################
 parser = argparse.ArgumentParser(description='Run command on some hosts')
@@ -79,14 +78,14 @@ def upgrade_csp(host):
         os.makedirs(destination)
     shutil.copy(source_msi, destination)
     shutil.copy(source_bat, destination)
-     # устанавливаем КриптоПРО 4.0
+    # устанавливаем КриптоПРО 4.0
     os.system(('psexec.exe \\\\{} C:\\tmp\\install.bat').format(host))
     shutil.rmtree(rm_destination)
 
 
-computer_list = parse_range(SUBNET_RANGE1)\
-                + parse_range(SUBNET_RANGE2)\
-                + parse_range(SUBNET_RANGE3)\
+computer_list = parse_range(SUBNET_RANGE1) \
+                + parse_range(SUBNET_RANGE2) \
+                + parse_range(SUBNET_RANGE3) \
                 + parse_range(SUBNET_RANGE4)
 
 if __name__ == '__main__':
