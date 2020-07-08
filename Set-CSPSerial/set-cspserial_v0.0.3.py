@@ -2,10 +2,10 @@
 
 
 __doc__ = 'This script for check and install CryptoPRO CSP license'
-__version__ = 'v0.0.3b'
+__version__ = 'v0.0.04'
 __author__ = 'Konstantin Tornovskiy'
 __email__ = 'coolship@yandex.ru'
-__date__ = 'Jun 2017'
+__date__ = 'Jun 2020'
 
 import winreg
 import os
