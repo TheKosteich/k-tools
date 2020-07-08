@@ -11,16 +11,21 @@ import winreg
 import os
 import argparse
 
-#################################################
-parser = argparse.ArgumentParser(description='Script for CryptoPRO CSP 3.9. serial key management.')
-parser.add_argument('name', nargs='?', help="Computer hostname or IP address")
-parser.add_argument('-cs', '--check-csp', help="Example: Check installed Crypto PRO CSP version", action='store_true')
+
+parser = argparse.ArgumentParser(
+    description='Script for CryptoPRO CSP 3.9. serial key management.'
+)
+parser.add_argument('name', nargs='?',
+                    help="Computer hostname or IP address")
+parser.add_argument('-cs', '--check-csp',
+                    help="Example: Check installed Crypto PRO CSP version",
+                    action='store_true')
 parser.add_argument('-o', '--owner', help="Actual user name on russian")
 parser.add_argument('-l', '--license', help="License serial number")
 parser.add_argument('-r', '--range', help='Example: Machine IP range')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
+parser.add_argument('-v', '--version', action='version',
+                    version='%(prog)s ' + __version__)
 args = parser.parse_args()
-###############################################
 
 APPROVE = ['y', 'yes', 'д', 'да', '1']
 DENY = ['n', 'no', 'н', 'нет', '0']
@@ -30,7 +35,7 @@ try:
         host = args.name if args.name else input('\nEnter Hostname or host IP: ')
         if not host:
             print('\nHostname or host IP is empty!')
-        elif True if os.system('ping -n 1 ' + host) is 0 else False:
+        elif os.system('ping -n 1 ' + host) == 0:
             try:
                 connect_reg = winreg.ConnectRegistry('\\\\' + host, winreg.HKEY_LOCAL_MACHINE)
                 open_key = winreg.OpenKey(connect_reg,

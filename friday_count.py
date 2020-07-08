@@ -2,14 +2,17 @@
 # -*- coding: utf-8 -*-
 
 
-import datetime
+import datetime as dt
 
-current_date = datetime.datetime.now()
-timedelta = datetime.timedelta(1)
+NEXT_YEAR = dt.datetime.now().year + 1
+FRIDAY_INDEX = dt.datetime.now().weekday()
+
+current_date = dt.datetime.now()
+timedelta = dt.timedelta(days=1)
 friday_count = 0
 
-while current_date.year != 2019:
-    if current_date.weekday() == 4:
+while current_date.year != NEXT_YEAR:
+    if current_date.weekday() == FRIDAY_INDEX:
         friday_count += 1
     current_date += timedelta
 

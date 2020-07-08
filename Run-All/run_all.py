@@ -12,12 +12,19 @@ import argparse
 import shutil
 from multiprocessing import Pool
 
+
 #################################################
 parser = argparse.ArgumentParser(description='Run command on some hosts')
-parser.add_argument('-rh', '--renew-hash', help='Renew system files hash after updates', action='store_true')
-parser.add_argument('-sd', '--sc-delete', help='Stop and delete service', action='store_true')
-parser.add_argument('-u', '--upgrade-csp', help='Upgrade CryptoPRO CSP to version 4.0', action='store_true')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
+parser.add_argument('-rh', '--renew-hash',
+                    help='Renew system files hash after updates',
+                    action='store_true')
+parser.add_argument('-sd', '--sc-delete',
+                    help='Stop and delete service', action='store_true')
+parser.add_argument('-u', '--upgrade-csp',
+                    help='Upgrade CryptoPRO CSP to version 4.0',
+                    action='store_true')
+parser.add_argument('-v', '--version', action='version',
+                    version='%(prog)s ' + __version__)
 args = parser.parse_args()
 ################################################
 

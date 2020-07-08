@@ -23,28 +23,30 @@ ERROR_SUCCESS = 0
 ERROR_NO_MORE_ITEMS = 259
 ERROR_UNKNOWN_PRODUCT = 1605
 
-# diff propoerties of a product, not all products have all properties
-PRODUCT_PROPERTIES = [u'Language',
-                      u'ProductName',
-                      u'PackageCode',
-                      u'Transforms',
-                      u'AssignmentType',
-                      u'PackageName',
-                      u'InstalledProductName',
-                      u'VersionString',
-                      u'RegCompany',
-                      u'RegOwner',
-                      u'ProductID',
-                      u'ProductIcon',
-                      u'InstallLocation',
-                      u'InstallSource',
-                      u'InstallDate',
-                      u'Publisher',
-                      u'LocalPackage',
-                      u'HelpLink',
-                      u'HelpTelephone',
-                      u'URLInfoAbout',
-                      u'URLUpdateInfo', ]
+# diff properties of a product, not all products have all properties
+PRODUCT_PROPERTIES = [
+    u'Language',
+    u'ProductName',
+    u'PackageCode',
+    u'Transforms',
+    u'AssignmentType',
+    u'PackageName',
+    u'InstalledProductName',
+    u'VersionString',
+    u'RegCompany',
+    u'RegOwner',
+    u'ProductID',
+    u'ProductIcon',
+    u'InstallLocation',
+    u'InstallSource',
+    u'InstallDate',
+    u'Publisher',
+    u'LocalPackage',
+    u'HelpLink',
+    u'HelpTelephone',
+    u'URLInfoAbout',
+    u'URLUpdateInfo',
+]
 
 # class to be used for python users :)
 Product = namedtuple('Product', PRODUCT_PROPERTIES)
@@ -105,11 +107,15 @@ def is_product_installed_uid(uid):
     # that the product is not installed in the system.
     buf_size = 256
     uid_buffer = create_unicode_buffer(uid)
-    property = u'VersionString'
+    property_ = u'VersionString'
     property_buffer = create_unicode_buffer(buf_size)
     size = DWORD(buf_size)
-    result = windll.msi.MsiGetProductInfoW(uid_buffer, property, property_buffer,
-                                           byref(size))
+    result = windll.msi.MsiGetProductInfoW(
+        uid_buffer,
+        property_,
+        property_buffer,
+        byref(size)
+    )
     if result == ERROR_UNKNOWN_PRODUCT:
         return False
     else:
