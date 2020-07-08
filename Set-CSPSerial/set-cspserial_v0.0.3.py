@@ -30,7 +30,7 @@ args = parser.parse_args()
 APPROVE = ['y', 'yes', 'д', 'да', '1']
 DENY = ['n', 'no', 'н', 'нет', '0']
 
-try:git
+try:
     while True:
         host = args.name if args.name else input('\nEnter Hostname or host IP: ')
         if not host:
